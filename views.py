@@ -43,14 +43,10 @@ def bs_health_status(request):
 @csrf_exempt
 def bs_save_hs_data_mock(request):
     bs_data = (yaml.safe_load(request.body))
-    #bs_table_hs_data = (yaml.safe_load(request.body))
-    #bs_data = (yaml.safe_load('{"table_data":{"Table_1":{"BhsPlc":[{"male":5,"female":3,"children":5,"elderly":7}],"BhsComDiseases":[{"com_disease":"Diarrhea","male":5,"female":6,"children":7,"elderly":8},{"com_disease":"Dengue","male":5,"female":6,"children":7,"elderly":8}],"BhsVi":[{"vital_indicators":"Under-5 Mortality Rate","male":3,"female":3,"children":3,"elderly":3},{"vital_indicators":"Mortality Rate","male":3,"female":3,"children":3,"elderly":3}],"BhsOi":[{"other_indicators":"Crude Birth Rate","unit_measure":1},{"other_indicators":"Maternal Mortality Rate","unit_measure":""}]}}}'))
-
+    
     bs_table_hs_data = bs_data['table_data']
     com_data = bs_data['com_data']
 
-    #bs_hs_data = json.loads('{"BhsPlc":[{"popMl_1":"345","popFm_1":"","popChUnder12_1":"","popElOver60_1":""}],"BhsComDiseases":[{"diarrheaComDMl_1":"dfg","diarrheaComDFm_1":"","diarrheaComChildren_1":"","diarrheaComElderly_1":""},{"dengueComDMl_1":"","dengueComDFm_1":"","dengueComDChildren_1":"","dengueComDElderly_1":""},{"othEnrComDMl_1":"","othEnrComDFm_1":"","othEnrComDChildren_1":"","othEnrComDElderly_1":""}],"BhsVi":[{"under5MrtRateViMl_1":"dfgh","under5MrtRateViFm_1":"","under5MrtRateViChildren_1":"","under5MrtRateViElderly_1":""},{"mrtRateViMl_1":"","mrtRateViFm_1":"","mrtRateViChildren_1":"","mrtRateViElderly_1":""},{"othEnrViMl_1":"","othEnrViFm_1":"","othEnrViChildren_1":"","othEnrViElderly_1":""}],"BhsOi":[{"crudeBirthRateOi_1":"sdf","maternalMrtRateOi_1":"","othsEnrOi_1":""}]}')
-    #bs_hs_data = (yaml.safe_load('{"Table_1":{"BhsPlc":[{"popMl_1":5,"popFm_1":3,"popChUnder12_1":5,"popElOver60_1":7}],"BhsComDiseases":[{"commonDisease":"Diarrhea","diarrheaComDMl_1":5,"diarrheaComDFm_1":6,"diarrheaComChildren_1":7,"diarrheaComElderly_1":8},{"commonDisease":"Dengue","dengueComDMl_1":8,"dengueComDFm_1":7,"dengueComDChildren_1":8,"dengueComDElderly_1":5},{"commonDisease":"Enumerate","othEnrComDMl_1":8,"othEnrComDFm_1":5,"othEnrComDChildren_1":9,"othEnrComDElderly_1":9}],"BhsVi":[{"vital_indicators":"Under-5 Mortality Rate","under5MrtRateViMl_1":3,"under5MrtRateViFm_1":3,"under5MrtRateViChildren_1":3,"under5MrtRateViElderly_1":3},{"vital_indicators":"Mortality Rate","mrtRateViMl_1":1,"mrtRateViFm_1":2,"mrtRateViChildren_1":2,"mrtRateViElderly_1":3},{"vital_indicators":"Enumerate","othEnrViMl_1":1,"othEnrViFm_1":1,"othEnrViChildren_1":1,"othEnrViElderly_1":1}],"BhsOi":[{"other_indicators":"Crude Birth Rate","crudeBirthRateOi_1":1},{"other_indicators":"Maternal Mortality Rate","maternalMrtRateOi_1":""},{"other_indicators":"Others","othsEnrOi_1":1}]}}'))
 
     for interface_table in bs_table_hs_data:
         print 'interface table', ' -->', interface_table, '\n'
