@@ -16,14 +16,6 @@ from django.core import serializers
 from django.http import JsonResponse
 
 
-# render baseline health table
-def bs_medical_facilities(request):
-    districts = District.objects.all()
-    context = {
-        'districts': districts
-    }
-    return render(request, 'base_line/health_baseline_district.html', context)
-
 
 # test method to save data to be integrated to API
 def bs_save_baseline_pub_mf():
